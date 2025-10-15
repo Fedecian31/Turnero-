@@ -11,6 +11,31 @@ body {
     padding: 40px;
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #b5e5e8;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    border-color: #00b6c7;
+    cursor: pointer;
+}
+
 h1 {
     text-align: center;
     color: #008c9e;
