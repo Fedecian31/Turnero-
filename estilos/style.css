@@ -40,7 +40,7 @@ h1 {
     text-align: center;
     color: #008c9e;
     margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 40px;
     letter-spacing: 1px;
 }
 
@@ -130,7 +130,7 @@ input:focus {
 #mensaje {
     margin-top: 25px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 600;
     color: #004f55;
 }
