@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- js -->
+        <script defer src="../js/form.js"></script>
+        <!-- style -->
+        <link rel="stylesheet" href="../estilos/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="tituloDoctor"></h1>
+
+    <form id="formTurno">
+        <label>Nombre del paciente
+            <input type="text" id="nombre" required>
+        </label>
+                <br /><br />
+        <label>Edad del paciente
+            <input type="number" id="edad" required>
+        </label>
+                <br /><br />
+        <label>Fecha:
+            <input type="date" id="fecha" required />
+        </label>
+        <br /><br />
+        <label>Hora:
+            <input type="time" id="hora" required />
+        </label>
+        <br /><br />
+        <button type="submit">Confirmar turno</button>
+    </form>
+
+    <p id="mensaje"></p>
+</body>
+
+</html>

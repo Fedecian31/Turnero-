@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background-color: #e6f7f8;
+    color: #333;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #008c9e;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+#cardsDoctores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+#cardsDoctores div {
+    background-color: #ffffff;
+    border: 2px solid #b5e5e8;
+    border-radius: 12px;
+    padding: 20px;
+    width: 230px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 140, 158, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#cardsDoctores div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 140, 158, 0.2);
+}
+
+#cardsDoctores h3 {
+    color: #008c9e;
+    margin-bottom: 10px;
+}
+
+#cardsDoctores p {
+    color: #666;
+    font-size: 15px;
+}
+
+a,
+button {
+    background-color: #00b6c7;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+a:hover,
+button:hover {
+    background-color: #008c9e;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #b5e5e8;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 140, 158, 0.15);
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #004f55;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #b5e5e8;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #00b6c7;
+}
+
+#mensaje {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #004f55;
+}
+
+#mensaje:empty {
+    display: none;
+}
+
+#mensaje:has(:not(:empty)) {
+    transition: color 0.3s ease;
+}
+
+#mensaje:contains("adulto responsable") {
+    color: #cc0000;
+}
+
+button[type="button"] {
+    background-color: #e85a5a;
+    margin: 20px auto;
+    display: block;
+}
+
+button[type="button"]:hover {
+    background-color: #c63e3e;
+}
