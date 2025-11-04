@@ -4,19 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- js -->
-    <script defer src="../js/form.js"></script>
+    <!-- Calendario -->
+    <link href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.js" defer></script>
+    <title>Reservar Turno</title>
     <!-- style -->
     <link rel="stylesheet" href="../estilos/style.css">
-    <title>Document</title>
+    <!-- js -->
+    <script defer src="../js/form.js"></script>
 </head>
-<header class="header">
-    <a href="../index.html" class="logo-link">
-        <img src="../img/logo.png" alt="Logo del consultorio" class="logo">
-    </a>
-</header>
 
 <body>
+    <header class="header">
+        <a href="../index.html" class="logo-link">
+            <img src="../img/logo.png" alt="Logo del consultorio" class="logo">
+        </a>
+    </header>
+
     <h1 id="tituloDoctor"></h1>
 
     <form id="formTurno">
@@ -25,21 +29,22 @@
         </label>
         <br /><br />
         <label>Edad del paciente
-            <input type="number" id="edad" required>
+            <input type="number" id="edad" required min="0" max="120">
         </label>
         <br /><br />
-        <label>Fecha:
-            <input type="date" id="fecha" required />
-        </label>
+        <label>Fecha:</label>
+        <input id="fecha" type="text" required readonly />
         <br /><br />
-        <label>Hora:
-            <input type="time" id="hora" required />
-        </label>
+        <label>Hora:</label>
+        <input id="hora" type="time" required min="08:00" max="18:00" step="900" />
         <br /><br />
-        <button type="submit">Confirmar turno</button>
+        <button type="submit" id="btnGuardar">Confirmar turno</button>
     </form>
 
     <p id="mensaje"></p>
+
+    <h2>Turnos agendados</h2>
+    <div id="listaTurnos"></div>
 </body>
 
 </html>
