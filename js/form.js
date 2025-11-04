@@ -68,8 +68,37 @@ function eliminarTurno(id) {
     escribirTurnos(nuevosTurnos);
 }
 
+// Generar horarios
+function dosDigitos(n) {
+    return (n < 10 ? "0" : "") + n;
+}
+function generarHorarios() {
+    var selectHora = document.getElementById("hora");
+    selectHora.innerHTML = '<option value="" selected disabled>Elegí un horario</option>';
 
-// Render de la lista
+    var inicioMin = 8 * 60;   
+    var finMin = 18 * 60;  
+    var paso = 30;       
+
+    for (var m = inicioMin; m <= finMin; m += paso) {
+        var h = Math.floor(m / 60);
+        var mins = m % 60;
+        var hh = dosDigitos(h);
+        var mm = dosDigitos(mins);
+        var valor = hh + ":" + mm;
+
+        var opt = document.createElement("option");
+        opt.value = valor;
+        opt.textContent = valor;
+        selectHora.appendChild(opt);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    generarHorarios();
+});
+
+// Render turnos
 
 var turnoEnEdicionId = null;
 
@@ -137,6 +166,14 @@ function renderTurnos() {
 // Formulario
 form.onsubmit = (e) => {
     e.preventDefault();
+
+    const checkNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+
+    if (!checkNombre.test(nombre.value.trim())) {
+        mensaje.textContent = "El nombre solo puede contener letras y espacios.";
+        nombre.focus();
+        return;
+    }
 
     const turno = {
         odontologo: odontologo.nombre,

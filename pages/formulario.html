@@ -35,8 +35,11 @@
         <label>Fecha:</label>
         <input id="fecha" type="text" required readonly />
         <br /><br />
-        <label>Hora:</label>
-        <input id="hora" type="time" required min="08:00" max="18:00" step="900" />
+        <label>Hora:
+            <select id="hora" required>
+                <option value="" selected disabled>Elegí un horario</option>
+            </select>
+        </label>
         <br /><br />
         <button type="submit" id="btnGuardar">Confirmar turno</button>
     </form>
