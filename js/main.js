@@ -1,9 +1,9 @@
 let doctores = [];
 let cardsDoctores = document.getElementById("cardsDoctores");
-const URL = "./db/data.json";
+// const URL = "./db/data.json";
 
 function cargarDoctores() {
-    fetch(URL)
+    fetch("./db/data.json")
         .then((respuesta) => respuesta.json())
         .then((data) => {
             doctores = data;
