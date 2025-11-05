@@ -180,6 +180,20 @@ function renderTurnos() {
     }
 }
 
+const btnCancelar = document.getElementById("btnCancelar");
+
+function cancelarEdicion() {
+    turnoEnEdicionId = null;
+    form.reset();
+    btnGuardar.textContent = "Confirmar turno";
+    mensaje.textContent = "";
+    Toast.fire({ icon: "info", title: "Edición cancelada" });
+}
+
+if (btnCancelar) {
+    btnCancelar.onclick = cancelarEdicion;
+}
+
 // Formulario
 form.onsubmit = (e) => {
     e.preventDefault();
@@ -205,40 +219,40 @@ form.onsubmit = (e) => {
         turnoEnEdicionId = null;
         btnGuardar.textContent = "Confirmar turno";
         // SweetAlert
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "centred",
-                showConfirmButton: false,
-                timer: 1000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                },
-            });
-            Toast.fire({
-                icon: "success",
-                title: "Turno editado con éxito",
-            });
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "centred",
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            },
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Turno editado con éxito",
+        });
         // mensaje.textContent = "Turno editado correctamente.";
     } else {
         crearTurno(turno);
         // SweetAlert
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "centred",
-                showConfirmButton: false,
-                timer: 1000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                },
-            });
-            Toast.fire({
-                icon: "success",
-                title: "Turno creado con éxito",
-            });
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "centred",
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            },
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Turno creado con éxito",
+        });
         // mensaje.textContent = "Turno creado correctamente.";
     }
 

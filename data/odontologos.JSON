@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "Cian Cecilia",
+        "id": 1,
+        "tratamientos": [
+            "Control",
+            "Ortodoncia"
+        ]
+    },
+    {
+        "nombre": "Mansor Eduardo",
+        "id": 2,
+        "tratamientos": [
+            "Control",
+            "Caries"
+        ]
+    },
+    {
+        "nombre": "Mansor Emilio",
+        "id": 3,
+        "tratamientos": [
+            "Control",
+            "Emergencias"
+        ]
+    }
+]
