@@ -3,7 +3,7 @@ let cardsDoctores = document.getElementById("cardsDoctores");
 
 async function cargarDoctores() {
     try {
-        const respuesta = await fetch("../data/odontologos.json");
+        const respuesta = await fetch("./data/odontologos.json");
         if (!respuesta.ok) throw new Error("Error al cargar los datos");
         doctores = await respuesta.json();
         renderOdontologos(doctores);
