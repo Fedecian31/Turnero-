@@ -204,6 +204,13 @@ button[type="button"]:hover {
     background-color: #c63e3e;
 }
 
+/* Sweetalert */
+body.swal2-shown>*:not(.swal2-container) {
+    filter: blur(3px);
+    transition: filter 0.2s ease;
+    will-change: filter;
+}
+
 /* calendario */
 .vanilla-calendar {
     border: 2px solid #b5e5e8;

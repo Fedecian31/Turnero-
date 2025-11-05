@@ -17,7 +17,6 @@ const btnGuardar = document.getElementById("btnGuardar");
 const mensaje = document.getElementById("mensaje");
 const lista = document.getElementById("listaTurnos");
 
-
 var contadorId = Number(localStorage.getItem("contadorId")) || 1;
 
 function leerTurnos() {
@@ -74,11 +73,12 @@ function dosDigitos(n) {
 }
 function generarHorarios() {
     var selectHora = document.getElementById("hora");
-    selectHora.innerHTML = '<option value="" selected disabled>Elegí un horario</option>';
+    selectHora.innerHTML =
+        '<option value="" selected disabled>Elegí un horario</option>';
 
-    var inicioMin = 8 * 60;   
-    var finMin = 18 * 60;  
-    var paso = 30;       
+    var inicioMin = 8 * 60;
+    var finMin = 18 * 60;
+    var paso = 30;
 
     for (var m = inicioMin; m <= finMin; m += paso) {
         var h = Math.floor(m / 60);
@@ -104,7 +104,9 @@ var turnoEnEdicionId = null;
 
 function renderTurnos() {
     var turnos = leerTurnos();
-    turnos.sort(function (a, b) { return b.id - a.id; });
+    turnos.sort(function (a, b) {
+        return b.id - a.id;
+    });
     lista.innerHTML = "";
 
     for (var i = 0; i < turnos.length; i++) {
@@ -127,7 +129,24 @@ function renderTurnos() {
             var id = Number(this.getAttribute("data-id"));
             eliminarTurno(id);
             renderTurnos();
-            mensaje.textContent = "Turno eliminado.";
+
+            // SweetAlert
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "centred",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                },
+            });
+            Toast.fire({
+                icon: "warning",
+                title: "Turno eliminado",
+            });
+            // mensaje.textContent = "Turno eliminado.";
         };
     }
 
@@ -156,12 +175,10 @@ function renderTurnos() {
 
             turnoEnEdicionId = id;
             btnGuardar.textContent = "Guardar cambios";
-            mensaje.textContent = "Editando turno…";
+            // mensaje.textContent = "Editando turno…";
         };
     }
 }
-
-
 
 // Formulario
 form.onsubmit = (e) => {
@@ -187,16 +204,47 @@ form.onsubmit = (e) => {
         editarTurno(turnoEnEdicionId, turno);
         turnoEnEdicionId = null;
         btnGuardar.textContent = "Confirmar turno";
-        mensaje.textContent = "Turno editado correctamente.";
+        // SweetAlert
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "centred",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                },
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Turno editado con éxito",
+            });
+        // mensaje.textContent = "Turno editado correctamente.";
     } else {
         crearTurno(turno);
-        mensaje.textContent = "Turno creado correctamente.";
+        // SweetAlert
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "centred",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                },
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Turno creado con éxito",
+            });
+        // mensaje.textContent = "Turno creado correctamente.";
     }
 
     form.reset();
     renderTurnos();
 };
-
 
 // Vanilla Calendar
 
@@ -220,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             visibility: {
                 positionToInput: "center",
-                theme: 'light',
+                theme: "light",
             },
             range: {
                 min: "today",
