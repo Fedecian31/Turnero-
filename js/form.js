@@ -114,7 +114,7 @@ function renderTurnos() {
         var div = document.createElement("div");
         div.className = "turno-card";
         div.innerHTML = `<strong>Paciente: ${t.nombrePaciente} (${t.edad})</strong><br>
-                        Doctor: ${t.odontologo} — ${t.fecha} ${t.hora} <div class="acciones">
+                        Doctor/a: ${t.odontologo} — ${t.fecha} ${t.hora} <div class="acciones">
                         <button class="btn-editar" data-id="${t.id}">Editar</button>
                         <button class="btn-eliminar" data-id="${t.id}">Eliminar</button>
                         </div>`;

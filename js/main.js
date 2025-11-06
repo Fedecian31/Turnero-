@@ -23,7 +23,7 @@ function renderOdontologos(doctores) {
     doctores.forEach((doctor) => {
         let card = document.createElement("div");
         card.innerHTML = `
-        <h3>Doctor: ${doctor.nombre}</h3>
+        <h3>Doctor/a: ${doctor.nombre}</h3>
         <p>Tratamientos: ${doctor.tratamientos.join(", ")}</p>
         <a id="${doctor.id}" href="./pages/formulario.html" class="btnReservar">Reservar Turno</a>
     `;
