@@ -271,12 +271,12 @@ body.swal2-shown>*:not(.swal2-container) {
 
 .vanilla-calendar-arrow_prev:hover,
 .vanilla-calendar-arrow_next:hover {
-    background: #008c9e;
+    background: #008c9e !important;
 }
 
 .vanilla-calendar-week__day {
     color: #008c9e;
-    font-weight: 600;
+    font-weight: 700 !important;
 }
 
 .vanilla-calendar-day__btn {
@@ -285,11 +285,7 @@ body.swal2-shown>*:not(.swal2-container) {
 }
 
 .vanilla-calendar-day__btn:hover {
-    background: #e6f7f8;
-}
-
-.vanilla-calendar-day__btn:active {
-    transform: translateY(1px);
+    background: #dcf8fa;
 }
 
 /* día seleccionado */
